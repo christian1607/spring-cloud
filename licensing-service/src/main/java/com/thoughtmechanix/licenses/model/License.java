@@ -1,64 +1,93 @@
 package com.thoughtmechanix.licenses.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class License{
-  private String id;
-  private String organizationId;
-  private String productName;
-  private String licenseType;
+@Entity
+@Table(name = "licenses")
+public class License {
 
-  public String getId() {
-    return id;
-  }
+    @Id
+    @Column(name = "license_id", nullable = false)
+    private String licenseId;
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    @Column(name = "organization_id", nullable = false)
+    private String organizationId;
 
-  public String getOrganizationId() {
-    return organizationId;
-  }
+    @Column(name = "product_name", nullable = false)
+    private String productName;
 
-  public void setOrganizationId(String organizationId) {
-    this.organizationId = organizationId;
-  }
+    @Column(name = "comment", nullable = true)
+    private String comment;
 
-  public String getProductName() {
-    return productName;
-  }
-
-  public void setProductName(String productName) {
-    this.productName = productName;
-  }
-
-  public String getLicenseType() {
-    return licenseType;
-  }
-
-  public void setLicenseType(String licenseType) {
-    this.licenseType = licenseType;
-  }
-
-  public License withId(String id){
-    this.setId( id );
-    return this;
-  }
-
-  public License withOrganizationId(String organizationId){
-    this.setOrganizationId(organizationId);
-    return this;
-  }
-
-  public License withProductName(String productName){
-    this.setProductName(productName);
-    return this;
-  }
-
-  public License withLicenseType(String licenseType){
-    this.setLicenseType(licenseType);
-    return this;
-  }
+    private String licenseType;
 
 
+    public String getLicenseId() {
+        return licenseId;
+    }
 
+    public void setLicenseId(String licenseId) {
+        this.licenseId = licenseId;
+    }
+
+    public String getOrganizationId() {
+        return organizationId;
+    }
+
+    public void setOrganizationId(String organizationId) {
+        this.organizationId = organizationId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getLicenseType() {
+        return licenseType;
+    }
+
+    public void setLicenseType(String licenseType) {
+        this.licenseType = licenseType;
+    }
+
+    public License withId(String id) {
+        this.setLicenseId(id);
+        return this;
+    }
+
+    public License withOrganizationId(String organizationId) {
+        this.setOrganizationId(organizationId);
+        return this;
+    }
+
+    public License withProductName(String productName) {
+        this.setProductName(productName);
+        return this;
+    }
+
+    public License withLicenseType(String licenseType) {
+        this.setLicenseType(licenseType);
+        return this;
+    }
+
+    public License withComment(String comment) {
+        this.setComment(comment);
+        return this;
+    }
+
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }

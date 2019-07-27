@@ -6,6 +6,10 @@ spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: /home/toshiba/Documents/proyectos/spring/cloud/spmia-chapter2/config-repository-local/license-service/
+
+        # for file system config properties
+        #native:
+        #  search-locations: /home/toshiba/Documents/proyectos/spring/cloud/spmia-chapter2/config-repository-local/license-service/
+        git:
+          uri: 
 
