@@ -1,0 +1,11 @@
+server:
+  port: 8888
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: /home/toshiba/Documents/proyectos/spring/cloud/spmia-chapter2/config-repository-local/license-service/
+
