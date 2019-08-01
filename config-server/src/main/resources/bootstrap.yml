@@ -15,5 +15,11 @@ spring:
           search-paths: '{cipher}258e32f0940c11a6ab1e14d7c136e0eac79d3a4202e9b804a1dc7ab16ad0cc28d8b90006a221da92279620c14a6ed79f3425f86f4a8107368373eb5804fc88a4'
           username: '{cipher}c959e94e79714875bb9fd4ff72c90974ae1d20490fa484c4527a5c019e41f699'
           password: '{cipher}71dcd03569aaa7a8c44f8f55f0ea5b6d1d217654ee6074e1cdf7ec864fec0b72'
+      fail-fast: true
+      retry:
+        initial-interval: 1000
+        max-attempts: 5
+        max-interval: 2000
+        multiplier: 1.1
 encrypt:
-  key: MyPassW0rD
+  key: ${SPRING_CIPHER_KEY}
