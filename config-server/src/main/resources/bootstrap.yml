@@ -15,4 +15,5 @@ spring:
           search-paths: config-remote-git/license-service
           username: christian1607
           password: Altamirano1607
-
+encrypt:
+  key: MyPassW0rD
