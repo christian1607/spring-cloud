@@ -3,4 +3,4 @@ spring.datasource.username: root
 spring.datasource.password: Altamirano
 spring.datasource.driver.class: com.mysql.jdbc.Driver
 spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
-example.property: {cipher}25d0179c570170f86ba79792bce2f1b9e0b6e628a6a2e77f683bf55be4055b74d06141b1835ef3d06ac4e4dd238e22f5
+example.property: {cipher}e8cd343ed29bd6db890f1436a60ff21c01c583f81e6f14e09bcb07dde226ca4f54fff971192ee6daad5e6e8e399aeb19
