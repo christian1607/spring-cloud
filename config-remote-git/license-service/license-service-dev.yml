@@ -1,6 +1,6 @@
 spring.datasource.url: jdbc:mysql://localhost:3306/eagle_eye_local
 spring.datasource.username: root
-spring.datasource.password: Altamirano
+spring.datasource.password: '{cipher}271dcfcaa1609c0268cc9a91320810f7602ef401cd1b0e79bf8754a59ec16a95'
 spring.datasource.driver.class: com.mysql.jdbc.Driver
 spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
 example.property: '{cipher}e8cd343ed29bd6db890f1436a60ff21c01c583f81e6f14e09bcb07dde226ca4f54fff971192ee6daad5e6e8e399aeb19'
