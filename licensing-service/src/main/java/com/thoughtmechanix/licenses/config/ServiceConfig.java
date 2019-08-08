@@ -11,7 +11,7 @@ public class ServiceConfig {
     @Value("${example.property}")
     private String exampleProperty;
 
-    public String getExampleProperty(){
+    public String getExampleProperty() {
         return exampleProperty;
     }
 
