@@ -24,11 +24,12 @@ public class LicenseServiceController {
         return licenseService.getLicensesByOrg(organizationId);
     }
 
-    @RequestMapping(value = "/{licenseId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{licenseId}/{clientType}", method = RequestMethod.GET)
     public License getLicenses(@PathVariable("organizationId") String organizationId,
-                               @PathVariable("licenseId") String licenseId) {
+                               @PathVariable("licenseId") String licenseId,
+                               @PathVariable("clientType")String clientType) {
 
-        return licenseService.getLicense(organizationId, licenseId);
+        return licenseService.getLicense(organizationId, licenseId,clientType);
     }
 
     @RequestMapping(value = "{licenseId}", method = RequestMethod.PUT)
