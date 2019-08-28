@@ -1,5 +1,7 @@
 package com.thoughtmechanix.licenses.services;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.thoughtmechanix.licenses.client.OrganizationDiscoveryClient;
 import com.thoughtmechanix.licenses.client.OrganizationFeignClient;
 import com.thoughtmechanix.licenses.client.OrganizationRestTemplateClient;
@@ -31,6 +33,7 @@ public class LicenseService {
     @Autowired
     OrganizationDiscoveryClient organizationDiscoveryClient;
 
+
     private Organization retrieveOrgInfo(String organizationId, String clientType){
         Organization organization = null;
 
@@ -54,7 +57,10 @@ public class LicenseService {
         return organization;
     }
 
-
+    @HystrixCommand(commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value ="1000" )
+    },
+            fallbackMethod = "getLicenseCache")
     public License getLicense(String organizationId, String licenseId,String clientType) {
 
         License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
@@ -83,5 +89,23 @@ public class LicenseService {
         return licenseRepository.findByOrganizationId(organizationId);
     }
 
+
+    public License getLicenseCache(String organizationId, String licenseId,String clientTyp){
+
+        License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
+
+        Organization organization=new Organization();
+        organization.setId(organizationId);
+        organization.setName("Oracle-Cache");
+        organization.setContactEmail("contact@oracle.com");
+        organization.setContactName("Oracle contacts Cache");
+        organization.setContactPhone("333-44444");
+        return license
+                .withOrganizationName( organization.getName())
+                .withContactName( organization.getContactName())
+                .withContactEmail( organization.getContactEmail() )
+                .withContactPhone( organization.getContactPhone() )
+                .withComment(config.getExampleProperty());
+    }
 
 }
